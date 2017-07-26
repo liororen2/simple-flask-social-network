@@ -1,0 +1,20 @@
+<!doctype html>
+<title>User Connections</title>
+<a href="/">Home</a>
+{% if user %}
+	<h1>Hello {{ user.name }}!</h1>
+	{% if connections %}
+		<h2>Your Connections</h2>
+		<ul>
+			{% for connection in connections %}
+				<li>
+					<a href="/users/{{connection.id}}">{{ connection.name }}</a>
+				</li>
+			{% endfor %}	  
+		</ul>
+	{% else %}
+		<h1>User has no connections!</h1>
+	{% endif %}
+{% else %}
+	<h1>User not found!</h1>
+{% endif %}
